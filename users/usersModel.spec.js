@@ -12,17 +12,18 @@ describe('users model', () => {
             await Users.insert({ name: "Peter" });
             await Users.insert({ name: "Paul" });
 
-            const Users = await db('users');
-            expect(Users).toHaveLength(2);
+            const users = await db('users');
+
+            expect(users).toHaveLength(2);
         });
     });
 
     describe('remove()', () => {
         it('should delete first user', async () => {
             await Users.remove(1);
-
-            const Users = await db('users');
-            expect(Users).toHaveLength(1);
+            const users = await db('users');
+        
+            expect(users).toHaveLength(1);
         });
     });
 });
